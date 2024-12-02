@@ -1,0 +1,18 @@
+{
+    log {
+        output stdout
+        format json
+        level INFO
+    }
+}
+
+(compression) {
+    encode gzip zstd
+}
+
+localhost {
+    root * /srv
+    file_server
+    import compression
+    tls internal
+}
